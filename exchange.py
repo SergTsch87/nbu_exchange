@@ -35,3 +35,7 @@ def handle_exceptions(func):
     return wrapper
 
 # -------------------------------------------------------
+
+def get_xml_data_currencies(url):
+    response = requests.get(url)
+    return xmltodict.parse(response.content)
