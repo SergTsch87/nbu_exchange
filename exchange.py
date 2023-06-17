@@ -71,3 +71,17 @@ def get_new_dict_xml(url):
 @dict_from_file
 def get_new_dict_json(url):
     return get_data_all_currencies(url)
+
+# ===========================================================================================
+
+@handle_exceptions
+@timer
+def print_max_min_val(func):
+    def wrapper():
+        new_dict = func()
+        max_value = get_max_value_dict(new_dict)
+        print(f'{func.__name__} Валюта з максимальним значенням:\n{max_value}: {new_dict[max_value]}')
+
+        min_value = get_min_value_dict(new_dict)
+        print(f'{func.__name__} Валюта з мінімальним значенням:\n{min_value}: {new_dict[min_value]}')
+    return wrapper
