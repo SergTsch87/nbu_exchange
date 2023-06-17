@@ -54,3 +54,12 @@ def get_max_value_dict(my_dict):
 # get MIN
 def get_min_value_dict(my_dict):
     return min(my_dict, key = my_dict.get)
+
+# ===========================================================================================
+
+def dict_from_file(func):
+    def wrapper(url):
+        dict_data = func(url)
+        new_dict = {dict_item['CurrencyCodeL']: float(dict_item['Amount']) for dict_item in dict_data}
+        return new_dict
+    return wrapper
