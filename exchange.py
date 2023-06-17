@@ -63,3 +63,11 @@ def dict_from_file(func):
         new_dict = {dict_item['CurrencyCodeL']: float(dict_item['Amount']) for dict_item in dict_data}
         return new_dict
     return wrapper
+
+@dict_from_file
+def get_new_dict_xml(url):
+    return get_xml_data_currencies(url)['CURRENCYCOURSE']['ROW']
+
+@dict_from_file
+def get_new_dict_json(url):
+    return get_data_all_currencies(url)
