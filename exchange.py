@@ -21,3 +21,17 @@ def timer(func):
     return wrapper
 
 # -------------------------------------------------------
+# Декоратор для перехоплення та обробки винятків
+
+def handle_exceptions(func):
+    def wrapper(*args, **kwargs):
+        try:
+            result = func(*args, **kwargs)
+            return result
+        except Exception as e:
+            print(f"Помилка: {str(e)}")
+            # Додаткові дії для обробки помилки
+
+    return wrapper
+
+# -------------------------------------------------------
