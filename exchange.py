@@ -85,3 +85,15 @@ def print_max_min_val(func):
         min_value = get_min_value_dict(new_dict)
         print(f'{func.__name__} Валюта з мінімальним значенням:\n{min_value}: {new_dict[min_value]}')
     return wrapper
+
+
+@print_max_min_val
+def get_dict_json():
+    url = 'https://bank.gov.ua/NBU_Exchange/exchange?json'
+    return get_new_dict_json(url)
+
+
+@print_max_min_val
+def get_dict_xml():
+    url = 'https://bank.gov.ua/NBU_Exchange/exchange'
+    return get_new_dict_xml(url)
