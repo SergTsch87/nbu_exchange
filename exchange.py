@@ -39,3 +39,10 @@ def handle_exceptions(func):
 def get_xml_data_currencies(url):
     response = requests.get(url)
     return xmltodict.parse(response.content)
+
+
+# Дістанемо з одного JSON-файлу список словників:
+#       усі назви валют, та їх відповідні значення
+def get_data_all_currencies(url):
+    response = urlopen(url)
+    return json.loads(response.read())
