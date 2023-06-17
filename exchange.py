@@ -97,3 +97,10 @@ def get_dict_json():
 def get_dict_xml():
     url = 'https://bank.gov.ua/NBU_Exchange/exchange'
     return get_new_dict_xml(url)
+
+# --------------------------------------------------------
+
+if __name__ == '__main__':    
+
+    get_dict_json()
+    get_dict_xml()
