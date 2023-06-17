@@ -46,3 +46,11 @@ def get_xml_data_currencies(url):
 def get_data_all_currencies(url):
     response = urlopen(url)
     return json.loads(response.read())
+
+# get MAX
+def get_max_value_dict(my_dict):
+    return max(my_dict, key = my_dict.get)
+
+# get MIN
+def get_min_value_dict(my_dict):
+    return min(my_dict, key = my_dict.get)
